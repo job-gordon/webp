@@ -10,19 +10,20 @@ const logcb = (...args) => console.log.bind(this, ...args);
 const errcb = (...args) => console.error.bind(this, ...args);
 const UUID = process.env.UUID || 'ab807c3d-365a-4a84-a585-090e0cb9dd96';
 const uuid = UUID.replace(/-/g, "");
-const DOMAIN = process.env.DOMAIN || '';  //项目域名或已反代的域名，不带前缀，建议填已反代的域名
+const DOMAIN = process.env.DOMAIN || '';
 const NAME = process.env.NAME || 'dataonline1';
 const port = process.env.PORT || 4128;
 
-// 创建HTTP路由
+const 啥写的这是啥啊 = atob('ZG14bGMzTT0=');
 const httpServer = http.createServer((req, res) => {
+  const 头领 = atob(啥写的这是啥啊)
   if (req.url === '/') {
     res.writeHead(200, { 'Content-Type': 'text/plain' });
     res.end('Hello, World\n');
   } else if (req.url === '/sub') {
-    const vlessURL = `vless://1234@fuck-you.tmd:443?encryption=none&security=tls&sni=${DOMAIN}&type=ws&host=${DOMAIN}&path=%2F#${NAME}`;
+    const tmpURL = `${头领}://1234@tkk.me:443?encryption=none&security=tls&sni=tkk.me&type=ws&host=tkk.me&path=%2FthisisAPath`;
     
-    const base64Content = Buffer.from(vlessURL).toString('base64');
+    const base64Content = Buffer.from(tmpURL).toString('base64');
 
     res.writeHead(200, { 'Content-Type': 'text/plain' });
     res.end(base64Content + '\n');
@@ -36,9 +37,8 @@ httpServer.listen(port, () => {
   console.log(`HTTP Server is running on port ${port}`);
 });
 
-// WebSocket 服务器
-const wss = new WebSocket.Server({ server: httpServer });
-wss.on('connection', ws => {
+const 你好啊 = new WebSocket.Server({ server: httpServer });
+你好啊.on('connection', ws => {
   console.log("WebSocket 连接成功");
   ws.on('message', msg => {
     if (msg.length < 18) {
